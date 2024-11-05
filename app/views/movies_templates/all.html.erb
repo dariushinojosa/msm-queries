@@ -14,6 +14,7 @@
   </tr>
 
   <% @movies_list.each do |mov| %>
+  <% matching_dir = Director.where({ :id => mov.director_id }).first %>
     <tr>
       <td> <%= mov.id %> </td>
       <td>
@@ -21,11 +22,7 @@
       </td>
       <td> <%= mov.title %> </td>
       <td> <%= mov.year %> </td>
-
-
-
-
-      
+      <td> <%= matching_dir.name %> </td>      
       <td>
         <a href="/movies/<%= mov.id %>">Show details</a>
       </td>

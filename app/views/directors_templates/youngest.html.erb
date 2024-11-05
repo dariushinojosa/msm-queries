@@ -1,0 +1,5 @@
+
+<h1>Youngest director</h1>
+
+<% dob_text = @young_dir.dob.strftime("%B %d, %Y") %>
+<p>The youngest director in our dataset right now is <a href="/directors/<%= @young_dir.id %>"> <%= @young_dir.name %></a>, born on <%= dob_text %>.</p>
