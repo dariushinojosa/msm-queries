@@ -1,0 +1,77 @@
+
+<h1>
+  Director #<%= @this_dir.id %> details
+</h1>
+
+<a href="/directors">
+  Go back
+</a>
+
+<dl>
+  <dt>Name</dt>
+  <dd> <%= @this_dir.name %> </dd>
+
+  <dt>Dob</dt>
+  <dd>
+    <%= @this_dir.dob %>    
+  </dd>
+
+  <dt>
+    Bio
+  </dt>
+  <dd>
+    <%= @this_dir.bio %>    
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src="<%= @this_dir.image %>" width="100">
+  </dd>
+
+    <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= @this_dir.created_at %>    
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= @this_dir.updated_at %>    
+  </dd>
+
+</dl>
+
+<hr>
+
+<h2>Filmography</h2>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th></th>
+  </tr>
+
+<% @matching_movies.each do |mov| %>
+    <tr>
+      <td> <%= mov.id %> </td>
+      <td>
+        <img src="<%= mov.image %>" width="100">
+      </td>
+      <td> <%= mov.title %> </td>
+      <td> <%= mov.year %> </td>
+      <td> <%= @this_dir.name %> </td>
+          <td>
+        <a href="/movies/<%= mov.id %>">Show details</a>
+      </td>
+    </tr>
+  <% end %>
+</table>
